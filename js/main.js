@@ -8,7 +8,9 @@ var btnStop = document.querySelector('.btn-stop');
 var timerId;
 
 var startCount = function() {
-    var hour = min = 1, sec = 0;
+    var hour = 1;
+    var min = 1;
+    var sec = 0;
 
     timerId = setInterval(function() {
         if (sec === 60) {
