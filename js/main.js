@@ -7,29 +7,27 @@ var btnStop = document.querySelector('.btn-stop');
 
 var timerId;
 
-var stopWatch = function(sec, min, hour) {
-    if (sec === 60) {
-        sec = 0;
-        if (min === 60) {
-            min = 0;
-            hours.innerHTML = (hour < 10) ? '0' + hour : hour;
-            hour++;
-        }
-        minutes.innerHTML = (min < 10) ? '0' + min : min;
-        min++;
-    }
-    seconds.innerHTML = (sec < 10) ? '0' + sec : sec;
-    sec++;
-
-    timerId = setTimeout(stopWatch, 1000, sec, min, hour);
-};
-
 var startCount = function() {
-    timerId = setTimeout(stopWatch, 1000, 0, 1, 1);
+    var hour = min = 1, sec = 0;
+
+    timerId = setInterval(function() {
+        if (sec === 60) {
+            sec = 0;
+            if (min === 60) {
+                min = 0;
+                hours.innerHTML = (hour < 10) ? '0' + hour : hour;
+                hour++;
+            }
+            minutes.innerHTML = (min < 10) ? '0' + min : min;
+            min++;
+        }
+        seconds.innerHTML = (sec < 10) ? '0' + sec : sec;
+        sec++;
+    }, 1000);
 };
 
 var stopCount = function() {
-    clearTimeout(timerId);
+    clearInterval(timerId);
 };
 
 btnStart.addEventListener('click', startCount);
