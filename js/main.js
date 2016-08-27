@@ -8,23 +8,22 @@ var btnStop = document.querySelector('.btn-stop');
 var timerId;
 
 var startCount = function() {
-    var hour = 0;
-    var min = 0;
-    var sec = 0;
+    var hour = min = sec = 0;
+
+    var innerHTML = function(obj, value) {
+        obj.innerHTML = (value < 10) ? '0' + value : value;
+    }
 
     timerId = setInterval(function() {
         if (sec === 60) {
             sec = 0;
             if (min === 60) {
                 min = 0;
-                hour++;
-                hours.innerHTML = (hour < 10) ? '0' + hour : hour;
+                innerHTML(hours, ++hour);
             }
-            min++;
-            minutes.innerHTML = (min < 10) ? '0' + min : min;
+            innerHTML(minutes, ++min);
         }
-        sec++;
-        seconds.innerHTML = (sec < 10) ? '0' + sec : sec;
+        innerHTML(seconds, ++sec);
     }, 1000);
 };
 
