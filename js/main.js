@@ -9,13 +9,15 @@ var Stopwatch = function() {
     this.startCount = function() {
         if (!timerId) {
             timerId = setInterval(function() {
-                if (++sec === 60) {
+                sec++;
+                if (sec === 60) {
                     sec = 0;
+                    min++;
                     if (min === 60) {
                         min = 0;
                         innerHTML(hours, ++hour);
                     }
-                    innerHTML(minutes, ++min);
+                    innerHTML(minutes, min);
                 }
                 innerHTML(seconds, sec);
             }, 1000);
