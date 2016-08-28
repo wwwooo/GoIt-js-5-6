@@ -1,5 +1,5 @@
 var Stopwatch = function() {
-    var hour = msec = sec = msec = 0;
+    var hour = min = sec = msec = 0;
     var timerId = false;
 
     var innerHTML = function(obj, value) {
@@ -11,11 +11,11 @@ var Stopwatch = function() {
             timerId = setInterval(function() {
                 if (sec === 60) {
                     sec = 0;
-                    if (msec === 60) {
-                        msec = 0;
+                    if (min === 60) {
+                        min = 0;
                         innerHTML(hours, ++hour);
                     }
-                    innerHTML(minutes, ++msec);
+                    innerHTML(minutes, ++min);
                 }
                 innerHTML(seconds, ++sec);
             }, 1000);
@@ -29,7 +29,7 @@ var Stopwatch = function() {
 
     this.stopCount = function() {
         clearInterval(timerId);
-        hour = msec = sec = msec = 0;
+        hour = min = sec = msec = 0;
         hours.innerHTML = minutes.innerHTML = seconds.innerHTML = '00';
         btnStart.innerHTML = 'Start';
         timerId = false;
