@@ -9,7 +9,7 @@ var Stopwatch = function() {
     this.startCount = function() {
         if (!timerId) {
             timerId = setInterval(function() {
-                if (sec === 60) {
+                if (++sec === 60) {
                     sec = 0;
                     if (min === 60) {
                         min = 0;
@@ -17,7 +17,7 @@ var Stopwatch = function() {
                     }
                     innerHTML(minutes, ++min);
                 }
-                innerHTML(seconds, ++sec);
+                innerHTML(seconds, sec);
             }, 1000);
             btnStart.innerHTML = 'Pause';
         } else {
