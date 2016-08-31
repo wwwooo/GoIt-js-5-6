@@ -17,7 +17,7 @@ button {
     width: 120px;
 }
 
-.mseconds {
+#mseconds {
     position: absolute;
     top: 6px;
     right: 51px;

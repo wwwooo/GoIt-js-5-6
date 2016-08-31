@@ -27,7 +27,7 @@ var Stopwatch = function() {
                     overwriteHTML(seconds, sec);
                 }
                 mseconds.innerHTML = msec;
-            }, 4);
+            }, 5);
             btnStart.innerHTML = 'Pause';
         } else {
             clearInterval(timerId);
@@ -48,12 +48,12 @@ var Stopwatch = function() {
 
 var firstStopwatch = new Stopwatch();
 
-var hours = document.querySelector('.hours');
-var minutes = document.querySelector('.minutes');
-var seconds = document.querySelector('.seconds');
-var mseconds = document.querySelector('.mseconds');
-var btnStart = document.querySelector('.btn-startStopwatch');
-var btnStop = document.querySelector('.btn-clearStopwatch');
+var hours = document.getElementById('hours');
+var minutes = document.getElementById('minutes');
+var seconds = document.getElementById('seconds');
+var mseconds = document.getElementById('mseconds');
+var btnStart = document.getElementById('btn-startStopwatch');
+var btnStop = document.getElementById('btn-clearStopwatch');
 
 btnStart.addEventListener('click', firstStopwatch.startCount);
 btnStop.addEventListener('click', firstStopwatch.stopCount);
