@@ -1,26 +1,33 @@
 var Stopwatch = function() {
     var hour = min = sec = msec = 0;
     var timerId = false;
-
-    var innerHTML = function(obj, value) {
+    var overwriteHTML = function(obj, value) {
         obj.innerHTML = (value < 10) ? '0' + value : value;
     };
 
     this.startCount = function() {
+        var date = new Date();
         if (!timerId) {
             timerId = setInterval(function() {
-                sec++;
-                if (sec === 60) {
-                    sec = 0;
-                    min++;
-                    if (min === 60) {
-                        min = 0;
-                        innerHTML(hours, ++hour);
+                msec += new Date() - date;
+                console.log(msec);
+                if (msec >= 1000) {
+                    msec = 0;
+                    sec++;
+                    if (sec === 60) {
+                        sec = 0;
+                        min++;
+                        if (min === 60) {
+                            min = 0;
+                            overwriteHTML(hours, ++hour);
+                        }
+                        overwriteHTML(minutes, min);
                     }
-                    innerHTML(minutes, min);
+                    overwriteHTML(seconds, sec);
                 }
-                innerHTML(seconds, sec);
-            }, 1000);
+                mseconds.innerHTML = msec;
+                date = new Date();
+            }, 4);
             btnStart.innerHTML = 'Pause';
         } else {
             clearInterval(timerId);
@@ -33,6 +40,7 @@ var Stopwatch = function() {
         clearInterval(timerId);
         hour = min = sec = msec = 0;
         hours.innerHTML = minutes.innerHTML = seconds.innerHTML = '00';
+        mseconds.innerHTML = '000';
         btnStart.innerHTML = 'Start';
         timerId = false;
     };
