@@ -52,8 +52,8 @@ var hours = document.getElementById('hours');
 var minutes = document.getElementById('minutes');
 var seconds = document.getElementById('seconds');
 var mseconds = document.getElementById('mseconds');
-var btnStart = document.getElementById('btn-startStopwatch');
-var btnStop = document.getElementById('btn-clearStopwatch');
+var btnStart = document.getElementById('startStopwatch');
+var btnStop = document.getElementById('clearStopwatch');
 
 btnStart.addEventListener('click', firstStopwatch.startCount);
 btnStop.addEventListener('click', firstStopwatch.stopCount);
