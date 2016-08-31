@@ -9,8 +9,9 @@ var Stopwatch = function() {
         var date = new Date();
         if (!timerId) {
             timerId = setInterval(function() {
-                msec += new Date() - date;
-                console.log(msec);
+                var newDate = new Date();
+                msec += newDate - date;
+                date = newDate;
                 if (msec >= 1000) {
                     msec = 0;
                     sec++;
@@ -26,7 +27,6 @@ var Stopwatch = function() {
                     overwriteHTML(seconds, sec);
                 }
                 mseconds.innerHTML = msec;
-                date = new Date();
             }, 4);
             btnStart.innerHTML = 'Pause';
         } else {

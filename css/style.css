@@ -3,11 +3,11 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;;
 }
 
 .dial {
     display: block;
+    margin-left: 60px;
     margin-bottom: 10px;
     font-size: 20px;
     font-weight: bold;
@@ -17,8 +17,9 @@ button {
     width: 120px;
 }
 
-sub {
+.mseconds {
     position: absolute;
-    right: 35px;
-    top: 16px;
+    top: 6px;
+    right: 51px;
+    font-size: 14px;
 }
